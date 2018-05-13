@@ -5,15 +5,26 @@ using namespace std;
 
 
 int main() {
-    ListWithBufferElement list;
-    list.add(1);
-    list.add(9);
-    list.add(4);
-    list.add(6);
+	ListWithBufferElement list;
+	cout << "isEmpty() - " << list.isEmpty() << endl;
+	cout << "size() - " << list.size() << endl;
+	cin >> list;
+	cout << "list - " << list << endl;
 
-//	list.print(std::cout);
-	cout << ">>> " << list << endl;
+	list.iterator()->start();
+	list.add(23);
+	cout << "add 23 - list - " << list << endl;
 
-    cin.get();
-    return 0;
+	cout << "isEmpty() - " << list.isEmpty() << endl;
+	cout << "size() - " << list.size() << endl;
+
+	while (list.find(4)) list.remove();
+	cout << "remove all 4 - list - " << list << endl;
+
+	cout << "isEmpty() - " << list.isEmpty() << endl;
+	cout << "size() - " << list.size() << endl;
+
+	cin.get();
+	cin.get();
+	return 0;
 }

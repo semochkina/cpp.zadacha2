@@ -139,7 +139,7 @@ public:
 	}
 
 	bool remove() override {
-		if (!iter->finish()) return false;
+		if (iter->finish()) return false;
 
 		Node *curr = iter->curr();
 
@@ -196,5 +196,16 @@ public:
 		for (Node *node = element.bufferNode.next; node != &element.bufferNode; node = node->next)
 			os << ", " << node->value;
 		return os;
+	}
+
+	friend std::istream &operator>>(std::istream &is, ListWithBufferElement &element) {
+		std::cout << "add 3 values:\n";
+		for (int i = 0; i < 3; i++) {
+			std::cout << "mas[" << i << "] > ";
+			int m;
+			is >> m;
+			element.add(m);
+		}
+		return is;
 	}
 };
