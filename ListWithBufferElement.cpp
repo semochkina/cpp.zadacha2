@@ -71,6 +71,7 @@ class ListWithBufferElement : public List {
 
 	void moveList(ListWithBufferElement &other) {
 		if (!other.isEmpty()) {
+			clear();
 			Node *otherNode = &other.bufferNode;
 			bufferNode.prev = otherNode->prev;
 			bufferNode.next = otherNode->next;
@@ -111,7 +112,6 @@ public:
 	// оператор перемещени€ (rvalue-ссылка на экземпл€р этого же класса)
 	ListWithBufferElement &operator=(ListWithBufferElement &&other) {
 		if (this != &other) {
-			clear();
 			// перемещаем
 			moveList(other);
 		}
